@@ -458,49 +458,21 @@ The trained models are stored in the `models/` directory:
 predict_flag_invoice.pkl
 ```
 
-Used for:
+Used for: Invoice Risk Classification
 
-```text
-Invoice Risk Classification
-```
 
 ```text
 predict_freight_model.pkl
 ```
 
-Used for:
+Used for: Freight Cost Prediction
 
-```text
-Freight Cost Prediction
-```
 
 ```text
 scaler.pkl
 ```
 
 Used to ensure that prediction data receives the same preprocessing as the training data.
-
----
-
-# 🎥 Application Demo
-
-A demonstration video of the Streamlit application is included with the project.
-
-The demo shows the workflow of the deployed application, including:
-
-* Opening the web application
-* Entering invoice information
-* Predicting invoice risk
-* Predicting freight cost
-* Displaying machine learning predictions
-
-For example:
-
-```markdown
-## Demo
-
-🎥 ![Streamlit Application Demo]("C:\Users\91958\Downloads\Vendor Invoice Analysis\Project Video .mp4") 
-```
 
 ---
 
