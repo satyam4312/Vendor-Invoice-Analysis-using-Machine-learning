@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 # Database Configuration
 # ==========================
 USERNAME = "root"
-PASSWORD = quote_plus("satyam@1234#")
+PASSWORD = quote_plus("YOUR_MYSQL_PASSWORD")
 HOST = "localhost"
 DATABASE = "ml_project"
 
