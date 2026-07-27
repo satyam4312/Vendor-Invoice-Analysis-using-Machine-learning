@@ -377,40 +377,6 @@ Predicted Freight Cost
 
 ---
 
-# 📦 Requirements
-
-Example `requirements.txt`:
-
-```text
-pandas
-numpy
-scikit-learn
-joblib
-matplotlib
-seaborn
-sqlalchemy
-pymysql
-streamlit
-```
-
----
-
-# ▶️ Running the Streamlit Application
-
-From the project root directory:
-
-```bash
-streamlit run app.py
-```
-
-The application will open in your browser at:
-
-```text
-http://localhost:8501
-```
-
----
-
 # 🧪 Running the Machine Learning Pipelines
 
 The notebooks used for development are:
