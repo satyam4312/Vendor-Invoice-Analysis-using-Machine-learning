@@ -91,7 +91,7 @@ def main():
     best_model = models[best_model_name]
 
     # 9. Save best model
-    model_path = model_dir / "predict_freight_model.pkl"
+    model_path = model_dir / "predict_freight_model1.pkl"
     joblib.dump(best_model, model_path)
 
     # 10. Final output
