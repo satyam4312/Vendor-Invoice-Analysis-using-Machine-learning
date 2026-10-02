@@ -84,7 +84,7 @@ def main():
     # 8. Save model
     # ==========================================================
 
-    model_path = model_dir / "predict_freight_model.pkl"
+    model_path = model_dir / "predict_freight_model1.pkl"
     joblib.dump(model, model_path)
 
 

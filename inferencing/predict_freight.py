@@ -2,7 +2,7 @@ import os
 import joblib
 import pandas as pd
 
-MODEL_PATH = "models/predict_freight_model.pkl"
+MODEL_PATH = "models/predict_freight_model1.pkl"
 
 def load_model(model_path: str = MODEL_PATH):
     """
