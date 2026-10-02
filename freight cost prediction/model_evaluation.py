@@ -9,23 +9,6 @@ from sklearn.metrics import (
     r2_score
 )
 
-# Linear Regression
-def train_linear_regression(X_train, y_train):
-    model = LinearRegression()
-    model.fit(X_train, y_train)
-    return model
-
-
-# Decision Tree Regression
-def train_decision_tree(X_train, y_train):
-    model = DecisionTreeRegressor(
-        random_state=42,
-        max_depth=10,
-        min_samples_split=5,
-        min_samples_leaf=2
-    )
-    model.fit(X_train, y_train)
-    return model
 
 # Random Forest Regression
 def train_random_forest(X_train, y_train):
@@ -55,5 +38,7 @@ def evaluate_model(model, X_test, y_test, model_name):
         "RMSE": rmse,
         "R2": r2
     }
+
+
 
 
