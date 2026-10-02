@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 # Database Configuration
 # ==========================
 USERNAME = "root"
-PASSWORD = quote_plus("YOUR_MYSQL_PASSWORD")
+PASSWORD = quote_plus("satyam@1234#")
 HOST = "localhost"
 DATABASE = "ml_project"
 
@@ -75,3 +75,5 @@ if __name__ == "__main__":
     print(f"Training Samples: {len(X_train)}")
     print(f"Testing Samples : {len(X_test)}")
     
+
+

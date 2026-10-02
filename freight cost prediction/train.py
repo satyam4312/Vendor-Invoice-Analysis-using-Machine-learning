@@ -14,62 +14,102 @@ from model_evaluation import (
     evaluate_model
 )
 
+
 def main():
-    # Create models directory
+    # 1. Create models directory
     model_dir = Path("models")
-    model_dir.mkdir(exist_ok = True)
+    model_dir.mkdir(parents=True, exist_ok=True)
 
-    # 1. Load data
+    # 2. Load data
+    print("Loading vendor invoice data...")
     df = load_vendor_invoice_data()
+    print(f"Dataset shape: {df.shape}")
 
-    # 2. Prepare features
+    # 3. Prepare features
+    print("\nPreparing features...")
     X, y = prepare_features(df)
+    print(f"Feature shape: {X.shape}")
+    print(f"Target shape : {y.shape}")
 
-    # 3. Split dataset
+    # 4. Split dataset
+    print("\nSplitting dataset...")
+
     X_train, X_test, y_train, y_test = split_data(X, y)
 
-    # 4. Train models
-    models = {
-        "Linear Regression": train_linear_regression(X_train, y_train),
-        "Decision Tree Regression": train_decision_tree(X_train, y_train),
-        "Random Forest Regression": train_random_forest(X_train, y_train)
-    }
+    print(f"Training samples: {len(X_train)}")
+    print(f"Testing samples : {len(X_test)}")
 
-    # 5. Evaluate models
+    # 5. Train all models
+    print("\nTraining models...")
+    print("-" * 60)
+
+    models = {}
+
+    # Linear Regression
+    print("Training Linear Regression...")
+    models["Linear Regression"] = train_linear_regression(X_train, y_train)
+
+    # Decision Tree
+    print("Training Decision Tree...")
+    models["Decision Tree Regression"] = train_decision_tree(X_train, y_train)
+
+    # Random Forest
+    print("Training Random Forest...")
+    models["Random Forest Regression"] = train_random_forest(X_train, y_train)
+
+    # 6. Evaluate all models
+    print("\nEvaluating models...")
+    print("-" * 60)
     results = []
+
     for name, model in models.items():
         result = evaluate_model(model, X_test, y_test, name)
         results.append(result)
 
-    # 6. Display results
-    print("Model Evaluation Results")
-    print("-" * 50)
+   
+    # 7. Display comparison
+    print("\nMODEL COMPARISON")
+    print(
+        f"{'Model':<30}"
+        f"{'MAE':>12}"
+        f"{'RMSE':>12}"
+        f"{'R²':>12}"
+    )
+    print("-" * 80)
 
     for result in results:
         print(
-            f"{result['Model']}: "
-            f"MAE = {result['MAE']:.4f}, "
-            f"RMSE = {result['RMSE']:.4f}, "
-            f"R² = {result['R2']:.4f}"
+            f"{result['Model']:<30}"
+            f"{result['MAE']:>12.4f}"
+            f"{result['RMSE']:>12.4f}"
+            f"{result['R2']:>12.4f}"
         )
 
-    # 7. Select best model based on MAE
-    best_result = min(results, key=lambda r: r["MAE"])
+    # 8. Select best model based on MAE
+    best_result = min(results, key=lambda result: result["MAE"])
     best_model_name = best_result["Model"]
     best_model = models[best_model_name]
 
-
-    # 8. Save best model
+    # 9. Save best model
     model_path = model_dir / "predict_freight_model.pkl"
     joblib.dump(best_model, model_path)
 
-    # 9. Final output
-    print("\nTraining completed successfully.")
+    # 10. Final output
+    print("\n" + "=" * 60)
+    print("TRAINING COMPLETED SUCCESSFULLY")
+    print("=" * 60)
+
     print(f"Best Model : {best_model_name}")
     print(f"Best MAE   : {best_result['MAE']:.4f}")
-    print(f"Model Saved: {model_path}")
+    print(f"Best RMSE  : {best_result['RMSE']:.4f}")
+    print(f"Best R²    : {best_result['R2']:.4f}")
+
+    print(f"\nModel saved to:")
+    print(f"  {model_path}")
+
+    print("=" * 60)
+
 
 
 if __name__ == "__main__":
     main()
-    
