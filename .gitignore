@@ -4,5 +4,4 @@ __pycache__/
 .vscode/
 data1/
 *.csv
-models/
-*.pkl
+
