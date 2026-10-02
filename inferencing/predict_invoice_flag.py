@@ -2,8 +2,8 @@ import os
 import joblib
 import pandas as pd
 
-MODEL_PATH = "models/predict_flag_invoice1.pkl"
-SCALER_PATH = "models/scaler1.pkl"
+MODEL_PATH = "models/predict_flag_invoice.pkl"
+SCALER_PATH = "models/scaler.pkl"
 
 
 def load_model():

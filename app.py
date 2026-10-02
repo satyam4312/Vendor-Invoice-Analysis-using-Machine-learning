@@ -62,9 +62,9 @@ FREIGHT_COLS = ["Quantity", "Dollars", "Freight_per_unit"]
 # ==============================
 @st.cache_resource
 def load_models():
-    invoice_model = joblib.load(MODEL_DIR / "predict_flag_invoice1.pkl")
-    freight_model = joblib.load(MODEL_DIR / "predict_freight_model1.pkl")
-    scaler = joblib.load(MODEL_DIR / "scaler1.pkl")
+    invoice_model = joblib.load(MODEL_DIR / "predict_flag_invoice.pkl")
+    freight_model = joblib.load(MODEL_DIR / "predict_freight_model_1.pkl")
+    scaler = joblib.load(MODEL_DIR / "scaler.pkl")
     return invoice_model, freight_model, scaler
 
 

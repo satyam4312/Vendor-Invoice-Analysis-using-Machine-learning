@@ -1,6 +1,4 @@
 import numpy as np
-from sklearn.linear_model import LinearRegression
-from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 
 from sklearn.metrics import (
@@ -14,12 +12,12 @@ from sklearn.metrics import (
 def train_random_forest(X_train, y_train):
 
     model = RandomForestRegressor(
-        n_estimators=200,
-        random_state=42,
-        n_jobs=-1,
-        max_depth=None,
-        min_samples_split=2,
-        min_samples_leaf=1
+        n_estimators = 200,
+        random_state = 42,
+        n_jobs = -1,
+        max_depth = None,
+        min_samples_split = 2,
+        min_samples_leaf = 1
     )
     model.fit(X_train, y_train)
     return model
@@ -33,11 +31,16 @@ def evaluate_model(model, X_test, y_test, model_name):
     r2 = r2_score(y_test, y_pred)
 
     return {
-        "Model": model_name,
-        "MAE": mae,
-        "RMSE": rmse,
-        "R2": r2
+        "Model" : model_name,
+        "MAE" : mae,
+        "RMSE" : rmse,
+        "R2" : r2
     }
+
+
+
+
+
 
 
 

@@ -37,16 +37,10 @@ def prepare_features(df):
     """
     Prepare features and target variable.
     """
-    # Keep only required columns
-    df = df[["Quantity", "Dollars", "Freight", "Freight_per_unit"]].copy()
-
-    # Remove missing values
-    df = df.dropna()
-
-    # Feature
-    X = df[["Quantity", "Dollars", "Freight_per_unit"]]
     
-    # Target
+    df = df[["Quantity", "Dollars", "Freight", "Freight_per_unit"]].copy()
+    df = df.dropna()
+    X = df[["Quantity", "Dollars", "Freight_per_unit"]]
     y = df["Freight"]
 
     return X, y
