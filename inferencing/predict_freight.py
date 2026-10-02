@@ -24,8 +24,9 @@ def predict_freight_cost(input_data):
 if __name__ == "__main__":
     sample_data = [
         {
-            "Quantity": 150,
-            "Dollars": 3500,
+            "Quantity" : 1935,
+            "Dollars" : 15527.25,
+            "Freight_per_unit" : 0.221809,
         }
     ]
 
